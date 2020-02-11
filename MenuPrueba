@@ -1,0 +1,278 @@
+//Función para Opcion 1 
+Funcion prom <- Secuencial (a,b,c)
+	prom <- (a+b+c)/3
+FinFuncion
+//Funcion de apoyo para Opcion 2 y 3
+Funcion nombre <- nombCondicionalSE()
+	Limpiar Pantalla
+	Escribir "Ingrese su nombre:"
+	Leer nombre
+FinFuncion
+//Funcion de apoyo para Opcion 2 y 3
+Funcion genero <- genCondicionalSE()
+	Escribir "Ingrese su género"
+	Escribir " 1 Si es Femenino, 2 Si es Masculino"
+	Leer genero
+FinFuncion
+//Funcion principal para Opcion 2
+Funcion CondicionalSE(nomb, gen)
+	Si gen==1 Entonces
+		Limpiar Pantalla
+		Escribir nomb, ", puedes ingresar al baño de Mujeres"
+		Escribir "Presione cualquier tecla para continuar"
+		Esperar Tecla
+	SiNo 
+		Si gen==2 Entonces
+			Limpiar Pantalla
+			Escribir nomb, ", puedes ingresar al baño de Hombres"
+			Escribir "Presione cualquier tecla para continuar"
+			Esperar Tecla
+		SiNo
+			Limpiar Pantalla
+			Escribir "Opción inválida"
+			Escribir "Presione cualquier tecla para continuar"
+			Esperar Tecla
+		FinSi
+	FinSi
+FinFuncion
+
+Funcion DuchaB(opcionducha)
+	Si opcionducha==1 Entonces
+		Limpiar Pantalla
+		Escribir "El costo por uso del baño es de $250"
+		Escribir "Presione cualquier tecla para continuar"
+		Esperar Tecla
+	SiNo
+		Si opcionducha==2 Entonces
+			Limpiar Pantalla
+			Escribir "El costo por el uso de la ducha es de $2.500 "
+			Escribir "Presione cualquier tecla para continuar"
+			Esperar Tecla
+		SiNo
+			Limpiar Pantalla
+			Escribir "Opción inválida"
+			Escribir "Presione cualquier tecla para continuar"
+			Esperar Tecla
+		FinSi
+	FinSi
+FinFuncion
+
+Funcion OutNum <- LeeNumero(OpcNum)
+	Limpiar Pantalla
+	Segun OpcNum Hacer
+		1:
+			OutNum <- "Uno"
+		2:
+			OutNum <- " Dos "
+		3:
+			OutNum <- "Tres "		
+		4:
+			OutNum <-  " Cuatro "
+		5:
+			OutNum <- " Cinco"
+		6:
+			OutNum <- " Seis"
+		7:
+			OutNum <-  " Siete"
+		8:
+			OutNum <-  " Ocho"
+		9:
+			OutNum <-  " Nueve"
+		10:
+			OutNum <-  " Diez"
+		De Otro Modo:
+			Escribir "Opción no soportada"
+
+	FinSegun
+	
+FinFuncion
+Funcion FuncionPromedio(co, ac, finalp, booleanBucle )
+	Mientras booleanBucle Hacer
+		Limpiar Pantalla
+		Escribir "Ingrese un Número, (0 Para salir)"
+		Leer numWhile
+		ac <- ac + numWhile
+		co <- co + 1
+		Si numWhile == 0 Entonces
+			booleanBucle <- Falso
+			finalp <- ac/(co-1)
+			Escribir "El promedio es de: ", finalp
+			Escribir "Presione cualquier tecla para continuar"
+			Esperar Tecla
+			
+		FinSi
+		
+		
+	FinMientras
+FinFuncion
+
+Funcion NombresJ()
+	Limpiar Pantalla
+	contNomb<-0
+	Repetir
+		Escribir "Ingrese nombres con J " 
+		Leer nombreJ
+		contNomb<-contNomb+1
+		
+	Hasta Que (Minusculas(nombreJ)== "juan")
+	Si (contNomb-1)==0 Entonces
+		Escribir  "Ganaste al primer intento! "
+		Escribir "Presione cualquier tecla para continuar"
+		Esperar Tecla	
+	SiNo
+		Escribir "Ganaste!, sólo necesitaste ", (contNomb-1), " intentos antes de lograrlo"
+		Escribir "Presione cualquier tecla para continuar"
+		Esperar Tecla		
+	FinSi
+
+FinFuncion
+
+Funcion CreaArray(arreglo)
+	Si arreglo>0 Entonces
+		Dimension talentos[arreglo]
+		
+		Para t<- 0 Hasta arreglo-1 Con Paso 1 Hacer
+			Escribir "Ingrese nombre"
+			Leer talentos[t]
+			
+		Fin Para
+		Para t2<-0 Hasta arreglo-1 Con Paso 1 Hacer
+			Si (t2 MOD(5))<>0 Entonces
+				Escribir talentos[t2], ", " Sin Saltar
+			SiNo
+				Escribir ' '
+				Escribir talentos[t2] ", "Sin Saltar
+			FinSi
+		Fin Para
+		Esperar Tecla
+	SiNo
+		Escribir "Rango de arreglo inválido"
+		Escribir "Presione cualquier tecla para continuar"
+		Esperar Tecla	
+	FinSi
+	
+FinFuncion
+Proceso proyectoInd
+	bucleOn <- Verdadero;
+	
+	Mientras bucleOn Hacer
+		
+		Limpiar Pantalla
+		Escribir "		Menú		"
+		Escribir " 1: Secuencial	"
+		Escribir " 2: Condicional Si Entonces	"
+		Escribir " 3: Condicional Si Entonces Anidado	"
+		Escribir " 4: Condicional Según		"
+		Escribir " 5: Repetitiva Mientras 		"
+		Escribir " 6: Repetitiva Repetir 	"
+		Escribir " 7: Repetitiva Para	"
+		Escribir " 8: Arreglo Simple	"
+		Escribir " 10: Salir	 "
+		Escribir "Ingrese el número de la opción que desea:	"
+		Leer opcion
+		
+		Si (opcion>0 y opcion <>9) Entonces
+			Segun opcion Hacer
+				1:
+					Limpiar Pantalla
+					Escribir "	Secuencial : Promedio de tres  números "
+					Escribir "Ingrese primer número"
+					Leer num1
+					Escribir "Ingrese segundo número"
+					Leer num2
+					Escribir "Ingrese tercer número"
+					Leer num3
+					Limpiar Pantalla
+					Escribir "El promedio de ", num1, " , ", num2, " y ", num3, " es de: " , Secuencial(num1,num2,num3);
+					Escribir "Presione cualquier tecla para continuar"
+					Esperar Tecla
+					
+				2:
+					nomb <- nombcondicionalSE()
+					gen <- genCondicionalSE()
+					CondicionalSE(nomb, gen)
+				3:
+					Limpiar Pantalla
+					nomb <- nombcondicionalSE()
+					gen <- genCondicionalSE()
+					CondicionalSE(nomb, gen)
+					Limpiar Pantalla
+					Escribir nomb, ", deseas utilizar: "
+					Escribir "1: Sólo baño "
+					Escribir "2: Ducha "
+					Escribir "Ingresa tu opción (1 o 2)"
+					Leer opBath
+					DuchaB(opBath)
+				4:
+					Limpiar Pantalla
+					Escribir "Ingrese un número del 1 al 10"
+					Leer numword
+					Escribir LeeNumero(numword)
+					Escribir "Presione cualquier tecla para continuar"
+					Esperar Tecla		
+				5:
+					Limpiar Pantalla
+					contProm <- 0
+					acuProm <- 0
+					finalProm <- 0
+					bucleWhile <- Verdadero
+					FuncionPromedio(contProm, acuProm,finalProm, bucleWhile)
+					
+					 
+				6:
+					NombresJ()
+				7:
+					Dimension nombres[10]
+					Dimension temp[10]
+					Limpiar Pantalla
+					Para cNomb<-0 Hasta 9 Con Paso 1 Hacer
+						Escribir "Ingresa un nombre"
+						Leer newnombre
+						
+						newnombre<-Minusculas(newnombre)
+						nombres[cNomb]<-newnombre
+					Fin Para
+					Para dNomb<-0 Hasta 9 Con Paso 1 Hacer
+						switch<-Verdadero
+						
+						Para eNomb<-0 Hasta 9 Con Paso 1 Hacer
+							Si nombres[dNomb]==nombres[eNomb]y (eNomb<>dNomb) Entonces
+								temp[dNomb]<-nombres[dNomb]
+								switch<-Falso
+								
+							FinSi
+			
+						Fin Para
+						SI switch==Falso Entonces
+							Escribir temp[dNomb]
+							
+						FinSi
+						
+
+					Fin Para
+					Esperar tecla
+
+					
+				8:
+					Limpiar Pantalla
+					Escribir "Ingrese tamaño de arreglo"
+					Leer arrayLen
+					CreaArray(arrayLen)
+					
+					 
+				10:
+					Limpiar Pantalla
+					Escribir "Que tenga un buen día"
+					Esperar 2 segundos
+					bucleOn <- Falso
+				De Otro Modo:
+					Limpiar Pantalla
+					Escribir "Opción inválida"
+					Escribir "Presione cualquier tecla para continuar"
+					Esperar Tecla
+			FinSegun
+		FinSi
+
+	FinMientras
+	
+FinProceso
